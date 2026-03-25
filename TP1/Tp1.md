@@ -1,5 +1,5 @@
 
-# TP1 —- Déployer une Web App .NET sur Azure avec CI/CD GitHub
+# 🧪 TP1 --- Déployer une Web App .NET sur Azure avec CI/CD GitHub
 
 ## 🎯 Objectifs
 
@@ -15,7 +15,7 @@ Dans ce TP vous allez :
 - Compte github
 - Accès au tenant Azure fourni (fourni par le formateur)
 - Visual Studio
-- .Net 8.0 Sdk
+- .Net 10.0 Sdk
 
 ## Prérequis formateur
 - Inviter l'étudiant dans **Entra ID** en guest via son adresse mail
@@ -39,7 +39,7 @@ Créer un repository nommé **AzureQuizLab**.
 - Cloner le repository sur votre machine (ex : Visual Studio).
 - Créer une application avec Visual Studio
   - ASP.NET Core Web App (Razor Pages)  
-  - Framework : **.NET 8**
+  - Framework : **.NET 10**
 - Ajouter les fichiers au repository.
 
 ```
@@ -65,7 +65,7 @@ Cliquer sur : **Create → Web App**
 
 Resource Group : **RG-Student-XX**  
 Name : **AzureQuizLab**  
-Runtime : **.NET 8**  
+Runtime : **.NET 10**  
 OS : **Linux**  
 Region : **West Europe**  
 Pricing Plan : **Free**

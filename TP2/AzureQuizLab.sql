@@ -80,6 +80,17 @@ CREATE TABLE QuizAttemptAnswer (
 );
 
 ---------------------------------------------------------------
+-- 6️⃣ Logs
+---------------------------------------------------------------
+
+CREATE TABLE Logs
+(
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    LogDate DATETIME2 NOT NULL DEFAULT SYSDATETIME(),
+    Message NVARCHAR(MAX) NOT NULL
+);
+
+---------------------------------------------------------------
 -- Index
 ---------------------------------------------------------------
 
