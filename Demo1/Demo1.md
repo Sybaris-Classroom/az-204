@@ -22,9 +22,14 @@ Pour simplifier les commandes Azure CLI, nous définissons deux variables :
 - le **Resource Group** (à modifier pour coller avec votre RG)
 - le **nom de l’App Service Plan**
 
+Et changer de souscription si besoin
+
 ```bash
 RG='az204'
 ASP_NAME='AppServicePlanAz204'
+
+az account list --output table
+az account set --subscription "NomOuIdDeTaSouscription"
 ```
 
 ---
