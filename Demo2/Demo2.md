@@ -34,7 +34,7 @@ Azure → Web App → Custom domains → Add custom domain
 azurequizlab.mondomaine.fr
 ```
 
-![Ajout custom domain](images\Image1.jpg)
+![Ajout custom domain](images/Image1.jpg)
 
 Dans le panneau qui s’ouvre :
 - **Domain provider**  → Sélectionner : `All other domain services`
@@ -42,7 +42,7 @@ Dans le panneau qui s’ouvre :
 - **TLS/SSL type** → Sélectionner : `SNI SSL`
 - **Domain**  → Remplir avec  `azurequizlab.mondomaine.fr` (en remplacant mondomaine.fr par le domaine correct)
 
-![Information custom domain](images\Image2.jpg)
+![Information custom domain](images/Image2.jpg)
 
 Azure affiche automatiquement :
 - un **CNAME**
@@ -68,13 +68,13 @@ Dans OVH :
 
 👉 Aller dans **Zone DNS**
 
-![Ajout entrée DNS](images\Image3.jpg)
+![Ajout entrée DNS](images/Image3.jpg)
 
 👉 Cliquer sur **Ajouter une entrée**
 
 👉 Sélectionner : **TXT**
 
-![Choix TXT](images\Image4.jpg)
+![Choix TXT](images/Image4.jpg)
 
 ---
 
@@ -99,7 +99,7 @@ Configurer :
 - **Sous-domaine** → `azurequizlab`
 - **Cible** → `votreapp.azurewebsites.net`
 
-![Choix CNAME](images\Image5.jpg)
+![Choix CNAME](images/Image5.jpg)
 
 👉 Valider
 
