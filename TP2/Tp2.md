@@ -581,6 +581,8 @@ Dans cette partie, vous allez :
 
 ## Étape 1 — Ajouter le logging Azure dans Program.cs
 
+⚠️ Installer le package nuget Microsoft.Extensions.Logging.AzureAppServices.
+
 Ouvrir `Program.cs`.
 
 Ajouter la configuration suivante AVANT `builder.Build()` :
@@ -590,7 +592,6 @@ builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
 builder.Logging.AddAzureWebAppDiagnostics();
 
-// Rajouter le using & le package du même nom Microsoft.Extensions.Logging.AzureAppServices;
 ```
 
 Cela permet :
