@@ -54,6 +54,7 @@ Cliquer sur **Save**
 Dans `Index.cshtml.cs` :
 
 ``` csharp
+        // inject IConfiguration -> _configuration
         public bool MaintenanceMode { get; set; }
 
         public void OnGet()
