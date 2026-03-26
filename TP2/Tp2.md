@@ -43,7 +43,7 @@ Name: MaintenanceMode
 Value: false
 ```
 
-Cliquer sur **Save**
+Cliquer sur **Apply** 2 fois
 
 ![Variable d'environnement](images/Image0a.jpg)
 
