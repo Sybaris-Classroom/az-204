@@ -312,7 +312,7 @@ Type : SQLAzure
 
 ⚠ Remplacer le mot de passe par celui que vous avez défini.
 
-Cliquer sur **Save**
+Cliquer sur **Apply** 2 fois
 ![Connection string ADO.NET](images/Image18.jpg)
 
 ------------------------------------------------------------------------
