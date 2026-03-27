@@ -265,7 +265,7 @@ Dans Azure Portal chercher :
 2.  Aller dans **Query Editor**
 3.  Utiliser le script suivant :
 
-![Script SQL](AzureQuizLab.sql)
+🗄️ [Script SQL](AzureQuizLab.sql)
 
 4.  **Exécutez le**
 
