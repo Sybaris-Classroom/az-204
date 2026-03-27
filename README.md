@@ -28,7 +28,7 @@ Je vous recommande de suivre les éléments dans cet ordre :
 11. [Quiz7 - Custom domain and Certificates](Quiz)
 12. [Demo3 – Azure App Service Deployment Slots & Swap](Demo3/Demo3.md)
 13. [Quiz8 - Deployment Slots](Quiz)
-14. [TP3 – Azure Functions](TP3/Tp3.md)
+14. [TP3 – Azure Functions](TP3/Tp3.md) - En cours de construction
 
 ---
 
