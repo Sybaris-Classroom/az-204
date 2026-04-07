@@ -7,7 +7,16 @@ echo "[INFO] Running SETUP-PUBLISH-PROFILE script"
 # =============================================================================
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source "$SCRIPT_DIR/../variables.sh"
+CONFIG_FILE="$SCRIPT_DIR/../variables.local.sh"
+TEMPLATE_FILE="$SCRIPT_DIR/../variables.template.sh"
+
+if [ ! -f "$CONFIG_FILE" ]; then
+    echo "[ERROR] Missing config file: $CONFIG_FILE"
+    echo "[HINT] Create it from template: cp \"$TEMPLATE_FILE\" \"$CONFIG_FILE\""
+    exit 1
+fi
+
+source "$CONFIG_FILE"
 
 echo "=== GitHub Publish Profile Setup ==="
 echo "App Service:  $APP_SERVICE_NAME"
@@ -22,6 +31,7 @@ echo ""
 
 # --- Configure Deployment Center source (GitHub) ---
 if [ "${DEPLOYMENT_SOURCE:-GitHub}" = "GitHub" ]; then
+
     REPO_URL="https://github.com/${GITHUB_ORGANIZATION}/${GITHUB_REPOSITORY}.git"
 
     "$AZ_CMD" webapp deployment source config \
@@ -29,7 +39,7 @@ if [ "${DEPLOYMENT_SOURCE:-GitHub}" = "GitHub" ]; then
         --resource-group "$RESOURCE_GROUP" \
         --repo-url "$REPO_URL" \
         --branch "$GITHUB_BRANCH" \
-        --only-show-errors &>/dev/null
+        #--only-show-errors &>/dev/null
 
     echo "[OK] Deployment Center source configured: GitHub ($REPO_URL, branch: $GITHUB_BRANCH)."
     echo ""

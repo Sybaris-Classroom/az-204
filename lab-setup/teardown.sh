@@ -8,6 +8,14 @@ if [ -z "$BASH_VERSION" ]; then
 fi
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+CONFIG_FILE="$SCRIPT_DIR/variables.local.sh"
+TEMPLATE_FILE="$SCRIPT_DIR/variables.template.sh"
+
+if [ ! -f "$CONFIG_FILE" ]; then
+    echo "[ERROR] Missing config file: $CONFIG_FILE"
+    echo "[HINT] Create it from template: cp \"$TEMPLATE_FILE\" \"$CONFIG_FILE\""
+    exit 1
+fi
 
 RESOURCES=(
     "login:Login Azure"

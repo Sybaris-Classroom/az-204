@@ -7,7 +7,16 @@ echo "[INFO] Running SEED script"
 # =============================================================================
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source "$SCRIPT_DIR/../variables.sh"
+CONFIG_FILE="$SCRIPT_DIR/../variables.local.sh"
+TEMPLATE_FILE="$SCRIPT_DIR/../variables.template.sh"
+
+if [ ! -f "$CONFIG_FILE" ]; then
+    echo "[ERROR] Missing config file: $CONFIG_FILE"
+    echo "[HINT] Create it from template: cp \"$TEMPLATE_FILE\" \"$CONFIG_FILE\""
+    exit 1
+fi
+
+source "$CONFIG_FILE"
 
 SQL_FILE="$SCRIPT_DIR/../../TP2/AzureQuizLab.sql"
 SQL_HOST="${SQL_SERVER_NAME}.database.windows.net"

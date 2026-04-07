@@ -7,12 +7,21 @@ echo "[INFO] Running CREATE script"
 # =============================================================================
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source "$SCRIPT_DIR/../variables.sh"
+CONFIG_FILE="$SCRIPT_DIR/../variables.local.sh"
+TEMPLATE_FILE="$SCRIPT_DIR/../variables.template.sh"
+
+if [ ! -f "$CONFIG_FILE" ]; then
+    echo "[ERROR] Missing config file: $CONFIG_FILE"
+    echo "[HINT] Create it from template: cp \"$TEMPLATE_FILE\" \"$CONFIG_FILE\""
+    exit 1
+fi
+
+source "$CONFIG_FILE"
 
 require_var() {
     local var_name="$1"
     if [ -z "${!var_name:-}" ]; then
-        echo "[ERROR] Missing required variable '$var_name' in variables.sh"
+        echo "[ERROR] Missing required variable '$var_name' in variables.local.sh"
         exit 1
     fi
 }
@@ -34,6 +43,8 @@ SQL_USE_ELASTIC_POOL="${SQL_USE_ELASTIC_POOL:-false}"
 SQL_ELASTIC_POOL_NAME="${SQL_ELASTIC_POOL_NAME:-}"
 SQL_WORKLOAD_ENV="${SQL_WORKLOAD_ENV:-}"
 SQL_FIREWALL_RULES=("${SQL_FIREWALL_RULES[@]:-}")
+SQL_REUSE_EXISTING_RESOURCES="${SQL_REUSE_EXISTING_RESOURCES:-false}"
+SQL_SEED_ON_EXISTING_DATABASE="${SQL_SEED_ON_EXISTING_DATABASE:-false}"
 
 echo "=== Azure SQL Setup ==="
 echo "Resource Group:  $RESOURCE_GROUP"
@@ -49,6 +60,7 @@ echo "Workload Env:    ${SQL_WORKLOAD_ENV:-<none>}"
 echo "Backup Red.:     $SQL_BACKUP_REDUNDANCY"
 echo "SQL Admin:       $SQL_ADMIN_USER"
 echo "Entra Admin:     $SQL_ENTRA_ADMIN_EMAIL"
+echo "Reuse SQL:       $SQL_REUSE_EXISTING_RESOURCES"
 echo "========================"
 echo ""
 
@@ -67,7 +79,10 @@ fi
 if "$AZ_CMD" sql server show \
     --name "$SQL_SERVER_NAME" \
     --resource-group "$RESOURCE_GROUP" &>/dev/null; then
-    echo "[OK] SQL Server '$SQL_SERVER_NAME' already exists. Skipping."
+    echo "[OK] SQL Server '$SQL_SERVER_NAME' already exists."
+elif [ "$SQL_REUSE_EXISTING_RESOURCES" = "true" ]; then
+    echo "[ERROR] SQL_REUSE_EXISTING_RESOURCES=true but server '$SQL_SERVER_NAME' was not found."
+    exit 1
 else
     echo "[..] Looking up Entra user '$SQL_ENTRA_ADMIN_EMAIL'..."
     ENTRA_ADMIN_SID=$("$AZ_CMD" ad user list \
@@ -147,11 +162,16 @@ fi
 echo ""
 
 # --- SQL Database ---
+DATABASE_ALREADY_EXISTS="false"
 if "$AZ_CMD" sql db show \
     --name "$SQL_DATABASE_NAME" \
     --server "$SQL_SERVER_NAME" \
     --resource-group "$RESOURCE_GROUP" &>/dev/null; then
-    echo "[OK] SQL Database '$SQL_DATABASE_NAME' already exists. Skipping."
+    DATABASE_ALREADY_EXISTS="true"
+    echo "[OK] SQL Database '$SQL_DATABASE_NAME' already exists."
+elif [ "$SQL_REUSE_EXISTING_RESOURCES" = "true" ]; then
+    echo "[ERROR] SQL_REUSE_EXISTING_RESOURCES=true but database '$SQL_DATABASE_NAME' was not found."
+    exit 1
 else
     echo "[..] Creating SQL Database '$SQL_DATABASE_NAME'..."
 
@@ -182,7 +202,12 @@ echo ""
 echo "=== Done ==="
 
 # --- Execute seed script ---
-echo ""
-echo "[..] Executing seed script to populate database..."
-bash "$SCRIPT_DIR/seed.sh"
-echo "[OK] Database seeded successfully."
+if [ "$DATABASE_ALREADY_EXISTS" = "true" ] && [ "$SQL_SEED_ON_EXISTING_DATABASE" != "true" ]; then
+    echo ""
+    echo "[--] Database already existed. Skipping seed (SQL_SEED_ON_EXISTING_DATABASE=false)."
+else
+    echo ""
+    echo "[..] Executing seed script to populate database..."
+    bash "$SCRIPT_DIR/seed.sh"
+    echo "[OK] Database seeded successfully."
+fi

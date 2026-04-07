@@ -8,12 +8,21 @@ echo "[INFO] Running TEARDOWN script"
 # =============================================================================
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source "$SCRIPT_DIR/../variables.sh"
+CONFIG_FILE="$SCRIPT_DIR/../variables.local.sh"
+TEMPLATE_FILE="$SCRIPT_DIR/../variables.template.sh"
+
+if [ ! -f "$CONFIG_FILE" ]; then
+    echo "[ERROR] Missing config file: $CONFIG_FILE"
+    echo "[HINT] Create it from template: cp \"$TEMPLATE_FILE\" \"$CONFIG_FILE\""
+    exit 1
+fi
+
+source "$CONFIG_FILE"
 
 require_var() {
     local var_name="$1"
     if [ -z "${!var_name:-}" ]; then
-        echo "[ERROR] Missing required variable '$var_name' in variables.sh"
+        echo "[ERROR] Missing required variable '$var_name' in variables.local.sh"
         exit 1
     fi
 }
@@ -24,10 +33,14 @@ require_var RESOURCE_GROUP
 require_var SQL_SERVER_NAME
 require_var SQL_DATABASE_NAME
 
+# Optional defaults
+SQL_REUSE_EXISTING_RESOURCES="${SQL_REUSE_EXISTING_RESOURCES:-false}"
+
 echo "=== Azure SQL Teardown ==="
 echo "Resource Group:  $RESOURCE_GROUP"
 echo "SQL Server:      $SQL_SERVER_NAME"
 echo "SQL Database:    $SQL_DATABASE_NAME"
+echo "Reuse SQL:       $SQL_REUSE_EXISTING_RESOURCES"
 echo "========================"
 echo ""
 
@@ -48,7 +61,9 @@ if [ "${SKIP_CONFIRM:-0}" != "1" ]; then
 fi
 
 # --- Delete SQL Database ---
-if "$AZ_CMD" sql db show \
+if [ "$SQL_REUSE_EXISTING_RESOURCES" = "true" ]; then
+    echo "[--] SQL_REUSE_EXISTING_RESOURCES=true. Keeping database '$SQL_DATABASE_NAME'."
+elif "$AZ_CMD" sql db show \
     --name "$SQL_DATABASE_NAME" \
     --server "$SQL_SERVER_NAME" \
     --resource-group "$RESOURCE_GROUP" &>/dev/null; then
@@ -69,7 +84,9 @@ fi
 echo ""
 
 # --- Delete SQL Server ---
-if "$AZ_CMD" sql server show \
+if [ "$SQL_REUSE_EXISTING_RESOURCES" = "true" ]; then
+    echo "[--] SQL_REUSE_EXISTING_RESOURCES=true. Keeping server '$SQL_SERVER_NAME'."
+elif "$AZ_CMD" sql server show \
     --name "$SQL_SERVER_NAME" \
     --resource-group "$RESOURCE_GROUP" &>/dev/null; then
 

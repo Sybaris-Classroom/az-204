@@ -7,7 +7,16 @@ echo "[INFO] Running CREATE script"
 # =============================================================================
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source "$SCRIPT_DIR/../variables.sh"
+CONFIG_FILE="$SCRIPT_DIR/../variables.local.sh"
+TEMPLATE_FILE="$SCRIPT_DIR/../variables.template.sh"
+
+if [ ! -f "$CONFIG_FILE" ]; then
+    echo "[ERROR] Missing config file: $CONFIG_FILE"
+    echo "[HINT] Create it from template: cp \"$TEMPLATE_FILE\" \"$CONFIG_FILE\""
+    exit 1
+fi
+
+source "$CONFIG_FILE"
 
 echo "=== Azure App Service Setup ==="
 echo "Resource Group:    $RESOURCE_GROUP"
@@ -73,7 +82,7 @@ echo "[..] Configuring connection strings..."
 "$AZ_CMD" webapp config connection-string set \
     --name "$APP_SERVICE_NAME" \
     --resource-group "$RESOURCE_GROUP" \
-    --settings "DefaultConnection=Server=sql-AzureQuiz-${STUDENT_ID}.database.windows.net;Database=AzureQuizLabDB;User Id=dbserveradmin;Password=P@ssword123!;TrustServerCertificate=True;" \
+    --settings "DefaultConnection=Server=${SQL_SERVER_NAME}.database.windows.net;Database=${SQL_DATABASE_NAME};User Id=${SQL_ADMIN_USER};Password=${SQL_ADMIN_PASSWORD};TrustServerCertificate=True;" \
     --connection-string-type SqlServer &>/dev/null
 echo "[OK] DefaultConnection connection string set."
 
