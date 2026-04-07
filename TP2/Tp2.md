@@ -19,7 +19,7 @@
 
 ------------------------------------------------------------------------
 
-# 🟢 Partie 1 --- Configuration via Feature Flag (MaintenanceMode)
+# 🟢 Partie 1 — Configuration via Feature Flag (MaintenanceMode)
 
 ## 🎯 Objectifs
 
@@ -29,7 +29,7 @@ L'objectif pédagogique est :
 - Utiliser une variable d’environnement dans votre application
 - Modifier le comportement de l’application sans redéployer
 
-## Étape 1 --- Ajouter une variable d'environnement
+## Étape 1 — Ajouter une variable d'environnement
 
 Dans Azure Portal :
 
@@ -49,7 +49,7 @@ Cliquer sur **Apply** 2 fois
 
 ------------------------------------------------------------------------
 
-## Étape 2 --- Lire la variable dans le code
+## Étape 2 — Lire la variable dans le code
 
 Dans `Index.cshtml.cs` :
 
@@ -73,7 +73,7 @@ Dans `Index.cshtml.cs` :
 
 ------------------------------------------------------------------------
 
-## Étape 3 --- Adapter la vue Razor
+## Étape 3 — Adapter la vue Razor
 
 Dans `Index.cshtml` :
 
@@ -92,7 +92,7 @@ Commit → Push → Vérifiez que le déploiement s'effectue correctement.
 
 ------------------------------------------------------------------------
 
-## Étape 4 --- Tester le changement de valeur
+## Étape 4 — Tester le changement de valeur
 
 1. Vérifiez que le site affiche :
 ``` csharp
@@ -117,7 +117,7 @@ Commit → Push → Vérifiez que le déploiement s'effectue correctement.
 
 ------------------------------------------------------------------------
 
-## Étape 5 --- Explication sur les sources de configuration en ASP.NET Core
+## Étape 5 — Explication sur les sources de configuration en ASP.NET Core
 
 ASP.NET Core charge la configuration depuis plusieurs sources :
 
@@ -157,7 +157,7 @@ C:\Users\<user>\AppData\Roaming\Microsoft\UserSecrets\<id>\secrets.json
 
 ------------------------------------------------------------------------
 
-# 🟢 Partie 2 --- Création Azure SQL
+# 🟢 Partie 2 — Création Azure SQL
 
 ## 🎯 Objectifs
 
@@ -173,14 +173,14 @@ Dans Azure :
 - Un Logical Server peut contenir plusieurs bases.
 - Cela correspond au modèle PaaS (Platform as a Service).
 
-## Étape 1 --- Créer une Azure SQL Database
+## Étape 1 — Créer une Azure SQL Database
 
 Dans Azure Portal chercher :
 
 1.  **Azure SQL Database**
 2.  **Create → SQL Database** 
 
-![Create SQL Database](images/Image1.jpg)
+![Créer SQL Database](images/Image1.jpg)
 
 3.  Renseigner :
 - Resource group : le resource group qui vous a été assigné
@@ -188,7 +188,7 @@ Dans Azure Portal chercher :
 - Workload environment :  Development
 - Backup storage redundancy : Locally-redundant backup storage
 
-![Create SQL Database data](images/Image2.jpg)
+![Créer SQL Database - données](images/Image2.jpg)
 
 4. Pour **Server** cliquer sur **Create new**
 5. Renseigner :
@@ -198,17 +198,17 @@ Dans Azure Portal chercher :
 - Admin login : dbserveradmin
 - Password : mot de passe fort (notez le...)
 
-![Create SQL Logical server](images/Image3.jpg)
+![Créer SQL Logical Server](images/Image3.jpg)
 
 6. Cliquer sur **OK** pour valider les informations
 7. Sur **Compute + storage ** cliquer sur le lien **Configure database**
 
-![Configure Database](images/Image4.jpg)
+![Configurer Database](images/Image4.jpg)
 
-8. Sélectioner :
+8. Sélectionner :
 - Service tier Basic (For less demanding worloads)
 
-![SQL Database pricing](images/Image5.jpg)
+![Tarification SQL Database](images/Image5.jpg)
 
 9. Cliquer sur **Apply**
 10. Cliquer sur **Review + Create** suivi de **Create** pour procéder à la création à la fois du serveur logique et de la database
@@ -216,9 +216,9 @@ Dans Azure Portal chercher :
 
 ------------------------------------------------------------------------
 
-# 🟢 Partie 3 --- Configuration du Firewall
+# 🟢 Partie 3 — Configuration du Firewall
 
-## Étape 1 --- Vérifier que sans configuration du firewall la connexion est en échec
+## Étape 1 — Vérifier que sans configuration du firewall la connexion est en échec
 
 1.  Ouvrir votre **SQL Database**
 2.  Cliquer sur **Open in SQL Server Management Studio** - Le server name et la databasename sont affichés
@@ -229,22 +229,22 @@ Dans Azure Portal chercher :
 
 ![SQL Database](images/Image6.jpg)
 
-![Open in SSMS](images/Image7.jpg)
+![Ouvrir dans SSMS](images/Image7.jpg)
 
-![Open in SSMS](images/Image8.jpg)
+![Ouvrir dans SSMS](images/Image8.jpg)
 
-![Confirm in SSMS](images/Image9.jpg)
+![Confirmer dans SSMS](images/Image9.jpg)
 
-![authenticate in SSMS](images/Image10.jpg)
+![Authentification dans SSMS](images/Image10.jpg)
 
-![authenticate failed in SSMS](images/Image11.jpg)
+![Échec d'authentification SSMS](images/Image11.jpg)
 
-## Étape 2 --- Configuration du firewall
+## Étape 2 — Configuration du firewall
 1. Ouvrir **Azure SQL**
 2. Cliquer sur **SQL Logical servers**
 3. Cliquer sur votre **Logical server**
 
-![Sélectionner votre logical server](images/Image12.jpg)
+![Sélectionner votre Logical Server](images/Image12.jpg)
 
 4. Sélectionner dans le menu **Networking**
 5. Cliquer sur **Selected Network**
@@ -259,7 +259,7 @@ Dans Azure Portal chercher :
 
 ------------------------------------------------------------------------
 
-# 🟢 Partie 4 --- Exécuter le script SQL
+# 🟢 Partie 4 — Exécuter le script SQL
 
 1.  Ouvrir votre **SQL Database**, une fois connecté avec SSMS
 2.  Aller dans **Query Editor**
@@ -278,9 +278,9 @@ SELECT COUNT(*) FROM Question;
 
 ------------------------------------------------------------------------
 
-# 🟢 Partie 5 --- Connection String
+# 🟢 Partie 5 — Connection string
 
-## Étape 1 --- Récupérer la connection string
+## Étape 1 — Récupérer la connection string
 
 1. SQL Database → **Connection strings**
 2. Cliquer sur **Show database connection strings**
@@ -293,7 +293,7 @@ SELECT COUNT(*) FROM Question;
 
 ------------------------------------------------------------------------
 
-## Étape 2 --- Ajouter la connection string dans Azure
+## Étape 2 — Ajouter la connection string dans Azure
 
 1.  Ouvrir votre **App Service**
 2.  Aller dans **Settings → Environment variables**
@@ -317,7 +317,7 @@ Cliquer sur **Apply** 2 fois
 
 ------------------------------------------------------------------------
 
-# 🟢 Partie 6 --- Configurer l'accès SQL dans l'application
+# 🟢 Partie 6 — Configurer l'accès SQL dans l'application
 
 ## 🎯 Objectif
 
@@ -348,9 +348,10 @@ Ajouter :
 ```
 
 ⚠️ Remplacez `VOTRE_MOT_DE_PASSE` par le mot de passe choisi.
-⚠️ Remplacez `sql-quizlab-xx` par votre nom de serveur
+⚠️ Remplacez `sql-quizlab-xx` par votre nom de serveur (xx, correspondant à votre N° de Ressource Group)
 
 ⚠️ Ce fichier ne doit jamais contenir de mot de passe en production.
+⚠️ Exclure ce fichier de git, car il contient un mot de passe (en le rajoutant dans le .gitignore)
 
 ---
 
@@ -437,7 +438,7 @@ Dans `Index.cshtml` :
 ```
 ---
 
-## Étape 6 - Tester l'application
+## Étape 6 — Tester l'application
 🧪 Test attendu
 
 1. Lancer l’application en local
@@ -447,7 +448,7 @@ Dans `Index.cshtml` :
 5. Ouvrir l'URL de votre WebApp
 6. Vérifier que le quiz se charge depuis la base et que cela fonctionne également en Azure
 
-![Application Test](images/Image19.jpg)
+![Test application](images/Image19.jpg)
 
 ------------------------------------------------------------------------
 
@@ -472,7 +473,7 @@ Dans cette partie, vous allez :
 
 Vous arrivez sur l’interface Kudu.
 
-![Advanced Tools](images/Image20.jpg)
+![Outils avancés](images/Image20.jpg)
 
 ---
 
@@ -486,14 +487,14 @@ Vous arrivez sur l’interface Kudu.
 
 Le seul objectif ici c'est de vous montrer que vous avez accès à ces informations.
 
-![Application Test](images/Image21.jpg)
+![Test application](images/Image21.jpg)
 
 ---
 
 ## Étape 3 — Se connecter au conteneur de l’application et explorer les fichiers déployés
 
 1. Ouvrir **_SSH** sur le menu de gauche
-2. Ouvrir **SSH to Application** puis cliquer sur le boutton **Start Connection**
+2. Ouvrir **SSH to Application** puis cliquer sur le bouton **Start Connection**
 
 Pour info : 
 - **SSH to Application** → conteneur réel de votre application  
@@ -668,7 +669,7 @@ Attendre la fin du déploiement.
 
 ⚠️ L’application redémarre automatiquement.
 
-![App Service log](images/Image23.jpg)
+![Logs App Service](images/Image23.jpg)
 
 ---
 
@@ -729,3 +730,4 @@ Dans ce TP, vous avez mis en œuvre plusieurs concepts fondamentaux d’Azure et
 - La configuration Azure **écrase toujours** celle du code
 - Azure SQL est sécurisé par défaut (firewall obligatoire)
 - Kudu permet d’accéder au **runtime réel**
+

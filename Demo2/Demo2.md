@@ -34,7 +34,7 @@ Azure → Web App → Custom domains → Add custom domain
 azurequizlab.mondomaine.fr
 ```
 
-![Ajout custom domain](images/Image1.jpg)
+![Ajout Custom Domain](images/Image1.jpg)
 
 Dans le panneau qui s’ouvre :
 - **Domain provider**  → Sélectionner : `All other domain services`
@@ -42,7 +42,7 @@ Dans le panneau qui s’ouvre :
 - **TLS/SSL type** → Sélectionner : `SNI SSL`
 - **Domain**  → Remplir avec  `azurequizlab.mondomaine.fr` (en remplacant mondomaine.fr par le domaine correct)
 
-![Information custom domain](images/Image2.jpg)
+![Informations Custom Domain](images/Image2.jpg)
 
 Azure affiche automatiquement :
 - un **CNAME**

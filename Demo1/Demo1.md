@@ -7,11 +7,11 @@ Dans cette démonstration, nous allons :
 - Récupérer son **Resource ID**
 - Configurer un **Autoscale Azure Monitor**
 - Ajouter des **règles de scaling basées sur l’utilisation CPU**
-2. Voir la différence entre auto scaling Rules & Elastic
+2. Voir la différence entre autoscaling Rules & Elastic
 
 ------------------------------------------------------------------------
 
-# 🟢 Partie 1 --- Mise en place du App Service Plan (avec Azure Cli)
+# 🟢 Partie 1 — Mise en place du App Service Plan (avec Azure CLI)
 
 ---
 
@@ -47,7 +47,7 @@ az appservice plan create \
    --sku P1V4
 ```
 
-![Creation du app service plan](images/image01.jpg)
+![Création du App Service Plan](images/image01.jpg)
 
 ---
 
@@ -73,11 +73,11 @@ Exemple de résultat :
 /subscriptions/.../resourceGroups/az204/providers/Microsoft.Web/serverfarms/AppServicePlanAz204
 ```
 
-![Id de la resource](images/image02.jpg)
+![ID de la ressource](images/image02.jpg)
 
 ------------------------------------------------------------------------
 
-# 🟢 Partie 2 --- Autoscale rules (avec Azure Cli)
+# 🟢 Partie 2 — Autoscale rules (avec Azure CLI)
 
 ---
 
@@ -142,7 +142,7 @@ az monitor autoscale rule create \
   --condition "CpuPercentage > 70 avg 10m"
 ```
 
-![Création rule scale out](images/image05.jpg)
+![Création règle Scale out](images/image05.jpg)
 
 ---
 
@@ -161,7 +161,7 @@ az monitor autoscale rule create \
   --condition "CpuPercentage < 30 avg 10m"
 ```
 
-![Création rule scale in](images/image06.jpg)
+![Création règle Scale in](images/image06.jpg)
 
 ---
 
@@ -173,7 +173,7 @@ Après avoir configuré l'autoscaling avec **Azure CLI**, il est intéressant d'
 
 ------------------------------------------------------------------------
 
-# 🟢 Partie 3 --- Autoscale elastic (via le portail)
+# 🟢 Partie 3 — Autoscale elastic (via le portail)
 
 ---
 
@@ -186,7 +186,7 @@ Dans le portail Azure vous pouvez voir les plans qui peuvent faire de l'autoscal
 1. Ouvrir l’**App Service Plan**
 2. Aller dans **Scale out (App Service plan)**
 
-![Automatic scaling](images/image09.jpg)
+![Scaling automatique](images/image09.jpg)
 
 3 modes de scaling sont possibles :
 - Manual : Nombre d’instances fixe.
@@ -242,7 +242,7 @@ Le **nombre réel de machines** est toujours défini par le **App Service Plan**
 
 ------------------------------------------------------------------------
 
-# 🟢 Partie 4 --- Conclusion
+# 🟢 Partie 4 — Conclusion
 
 Dans cette démonstration, nous avons :
 

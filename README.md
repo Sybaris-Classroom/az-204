@@ -3,8 +3,8 @@
 Ce repository contient les **supports pratiques d'une formation Azure Developer Associate (AZ-204)** que j'ai concu.
 
 Vous y trouverez :
-- des **travaux pratiques (TP)** pour manipuler Azure
-- des **démonstrations guidées**
+- des **travaux pratiques (TP)** pour manipuler Azure à réaliser par les participants
+- des **démonstrations guidées** faites par le formateur, mais réalisables aussi par les participants disposant de leur propre abonnement Azure
 - des **quiz** pour tester votre compréhension des concepts clés
 
 L'objectif est de vous aider à **comprendre concrètement les services Azure utilisés dans l'examen AZ-204**, et à vous entraîner avec des exercices proches des scénarios réels.
@@ -17,17 +17,17 @@ Je vous recommande de suivre les éléments dans cet ordre :
 
 1. [TP1 – Déployer une Web App .NET sur Azure avec CI/CD GitHub](TP1/Tp1.md)
 2. [Demo1 – Autoscaling d’un App Service Plan / Rules & Elastic](Demo1/Demo1.md)
-3. [Quiz1 - On Premises vs IaaS vs PaaS vs SaaS](Quiz)
-4. [Quiz2 - App Services](Quiz)
-5. [Quiz3 - App Service Plans](Quiz)
+3. [Quiz1](Quiz) - On Premises vs IaaS vs PaaS vs SaaS
+4. [Quiz2](Quiz) - App Services
+5. [Quiz3](Quiz) - App Service Plans
 6. [TP2 – Azure SQL, Configuration et Logs](TP2/Tp2.md)
-7. [Quiz4 - App Service Environment variables](Quiz)
-8. [Quiz5 - Azure SQL](Quiz)
-9. [Quiz6 - Kudu & Debug](Quiz)
+7. [Quiz4](Quiz) - App Service Environment variables
+8. [Quiz5](Quiz) - Azure SQL
+9. [Quiz6](Quiz) - Kudu & Debug
 10. [Demo2 – Custom domain and Certificates](Demo2/Demo2.md)
-11. [Quiz7 - Custom domain and Certificates](Quiz)
+11. [Quiz7](Quiz) - Custom domain and Certificates
 12. [Demo3 – Azure App Service Deployment Slots & Swap](Demo3/Demo3.md)
-13. [Quiz8 - Deployment Slots](Quiz)
+13. [Quiz8](Quiz) - Deployment Slots
 14. [TP3 – Azure Functions](TP3/Tp3.md) - En cours de construction
 
 ---
