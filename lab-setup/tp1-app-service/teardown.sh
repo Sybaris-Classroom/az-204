@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+echo "[INFO] Running TEARDOWN script"
 
 # =============================================================================
 # Teardown Azure App Service Plan + App Service

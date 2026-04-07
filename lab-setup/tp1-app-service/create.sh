@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+echo "[INFO] Running CREATE script"
 
 # =============================================================================
 # Create Azure App Service Plan + App Service (idempotent)
@@ -57,6 +58,24 @@ echo "[..] Enabling run-from-package mode..."
     --resource-group "$RESOURCE_GROUP" \
     --settings WEBSITE_RUN_FROM_PACKAGE=1 &>/dev/null
 echo "[OK] Run-from-package mode enabled."
+
+echo ""
+
+# --- Configure Environment Variables and Connection Strings ---
+echo "[..] Configuring environment variables..."
+"$AZ_CMD" webapp config appsettings set \
+    --name "$APP_SERVICE_NAME" \
+    --resource-group "$RESOURCE_GROUP" \
+    --settings MaintenanceMode=false &>/dev/null
+echo "[OK] MaintenanceMode environment variable set."
+
+echo "[..] Configuring connection strings..."
+"$AZ_CMD" webapp config connection-string set \
+    --name "$APP_SERVICE_NAME" \
+    --resource-group "$RESOURCE_GROUP" \
+    --settings "DefaultConnection=Server=sql-AzureQuiz-${STUDENT_ID}.database.windows.net;Database=AzureQuizLabDB;User Id=dbserveradmin;Password=P@ssword123!;TrustServerCertificate=True;" \
+    --connection-string-type SqlServer &>/dev/null
+echo "[OK] DefaultConnection connection string set."
 
 echo ""
 
