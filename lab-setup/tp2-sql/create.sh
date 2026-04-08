@@ -45,9 +45,11 @@ SQL_WORKLOAD_ENV="${SQL_WORKLOAD_ENV:-}"
 SQL_FIREWALL_RULES=("${SQL_FIREWALL_RULES[@]:-}")
 SQL_REUSE_EXISTING_RESOURCES="${SQL_REUSE_EXISTING_RESOURCES:-false}"
 SQL_SEED_ON_EXISTING_DATABASE="${SQL_SEED_ON_EXISTING_DATABASE:-false}"
+SQL_RESOURCE_GROUP="${SQL_RESOURCE_GROUP:-$RESOURCE_GROUP}"
 
 echo "=== Azure SQL Setup ==="
-echo "Resource Group:  $RESOURCE_GROUP"
+echo "User RG:         $RESOURCE_GROUP"
+echo "SQL RG:          $SQL_RESOURCE_GROUP"
 echo "Location:        $SQL_LOCATION"
 echo "SQL Server:      $SQL_SERVER_NAME"
 echo "SQL Database:    $SQL_DATABASE_NAME"
@@ -78,10 +80,10 @@ fi
 # --- SQL Server (SQL auth + Entra admin) ---
 if "$AZ_CMD" sql server show \
     --name "$SQL_SERVER_NAME" \
-    --resource-group "$RESOURCE_GROUP" &>/dev/null; then
+    --resource-group "$SQL_RESOURCE_GROUP" &>/dev/null; then
     echo "[OK] SQL Server '$SQL_SERVER_NAME' already exists."
 elif [ "$SQL_REUSE_EXISTING_RESOURCES" = "true" ]; then
-    echo "[ERROR] SQL_REUSE_EXISTING_RESOURCES=true but server '$SQL_SERVER_NAME' was not found."
+    echo "[ERROR] SQL_REUSE_EXISTING_RESOURCES=true but server '$SQL_SERVER_NAME' was not found in resource group '$SQL_RESOURCE_GROUP'."
     exit 1
 else
     echo "[..] Looking up Entra user '$SQL_ENTRA_ADMIN_EMAIL'..."
@@ -100,7 +102,7 @@ else
 
     if "$AZ_CMD" sql server create \
         --name "$SQL_SERVER_NAME" \
-        --resource-group "$RESOURCE_GROUP" \
+        --resource-group "$SQL_RESOURCE_GROUP" \
         --location "$SQL_LOCATION" \
         --admin-user "$SQL_ADMIN_USER" \
         --admin-password "$SQL_ADMIN_PASSWORD" \
@@ -123,7 +125,7 @@ echo ""
 echo "[..] Ensuring firewall rule 'AllowAzureServices'..."
 "$AZ_CMD" sql server firewall-rule create \
     --server "$SQL_SERVER_NAME" \
-    --resource-group "$RESOURCE_GROUP" \
+    --resource-group "$SQL_RESOURCE_GROUP" \
     --name "AllowAzureServices" \
     --start-ip-address 0.0.0.0 \
     --end-ip-address 0.0.0.0 \
@@ -147,7 +149,7 @@ if [ ${#SQL_FIREWALL_RULES[@]} -gt 0 ]; then
         echo "     $name ($start_ip - $end_ip)"
         "$AZ_CMD" sql server firewall-rule create \
             --server "$SQL_SERVER_NAME" \
-            --resource-group "$RESOURCE_GROUP" \
+            --resource-group "$SQL_RESOURCE_GROUP" \
             --name "$name" \
             --start-ip-address "$start_ip" \
             --end-ip-address "$end_ip" \
@@ -166,11 +168,11 @@ DATABASE_ALREADY_EXISTS="false"
 if "$AZ_CMD" sql db show \
     --name "$SQL_DATABASE_NAME" \
     --server "$SQL_SERVER_NAME" \
-    --resource-group "$RESOURCE_GROUP" &>/dev/null; then
+    --resource-group "$SQL_RESOURCE_GROUP" &>/dev/null; then
     DATABASE_ALREADY_EXISTS="true"
     echo "[OK] SQL Database '$SQL_DATABASE_NAME' already exists."
 elif [ "$SQL_REUSE_EXISTING_RESOURCES" = "true" ]; then
-    echo "[ERROR] SQL_REUSE_EXISTING_RESOURCES=true but database '$SQL_DATABASE_NAME' was not found."
+    echo "[ERROR] SQL_REUSE_EXISTING_RESOURCES=true but database '$SQL_DATABASE_NAME' was not found in resource group '$SQL_RESOURCE_GROUP'."
     exit 1
 else
     echo "[..] Creating SQL Database '$SQL_DATABASE_NAME'..."
@@ -179,7 +181,7 @@ else
         "$AZ_CMD" sql db create
         --name "$SQL_DATABASE_NAME"
         --server "$SQL_SERVER_NAME"
-        --resource-group "$RESOURCE_GROUP"
+        --resource-group "$SQL_RESOURCE_GROUP"
         --backup-storage-redundancy "$SQL_BACKUP_REDUNDANCY"
         --only-show-errors
     )

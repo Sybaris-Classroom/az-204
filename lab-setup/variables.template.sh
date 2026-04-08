@@ -16,6 +16,7 @@ AZURE_WEBAPP_PUBLISH_PROFILE_SECRET="AZURE_WEBAPP_PUBLISH_PROFILE_XXXX" # Le sec
 
 # TP2 SQL
 SQL_REUSE_EXISTING_RESOURCES="true"  # Pour des raisons de coût, vous pouvez choisir de réutiliser un serveur SQL et une base de données existants (true) ou d'en créer de nouveaux (false). Si vous choisissez true, assurez-vous que les variables SQL_SERVER_NAME et SQL_DATABASE_NAME correspondent à des ressources existantes que vous pouvez utiliser.
+SQL_RESOURCE_GROUP="RG-Student-00"   # RG du serveur/base SQL cible. Laisser vide ou commenter pour utiliser RESOURCE_GROUP.
 #SQL_SERVER_NAME="sql-AzureQuiz-${STUDENT_ID}"  # Si SQL_REUSE_EXISTING_RESOURCES, utiliser cette ligne à la place de la ligne suivante (ex: sql-AzureQuiz-00)
 SQL_SERVER_NAME="sql-AzureQuiz-00"  # Nom du serveur SQL (doit être unique dans Azure, ex: sql-AzureQuiz-00)
 SQL_DATABASE_NAME="AzureQuizLabDB"  # Nom de la base de données SQL
