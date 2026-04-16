@@ -29,6 +29,8 @@ Dans l’application **AzureQuizLab**, lorsqu’un utilisateur soumet un quiz :
 - Visual Studio avec le workload Azure
 - Installer "Azure functions Core Tools" https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local    
 - Avoir réalisé les précédents TP
+- Avoir les Azure Functions toolsets and template en version >=4.125.0
+![Azure Function toolsets and template](images/Image0.jpg)
 
 ## Prérequis formateur
 
