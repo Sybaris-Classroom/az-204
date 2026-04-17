@@ -367,6 +367,12 @@ Message has reached MaxDequeueCount of 5. Moving message to queue 'quiz-queue-po
         _logger.LogInformation("Ecriture en base effectuée");
 ```
 
+Rajouter le package nuget suivant : 
+
+```bash
+dotnet Microsoft.Data.SqlClient
+```
+
 ## Étape 16 — Test
 
 - Vérifier que les données sont insérées dans la table Logs
