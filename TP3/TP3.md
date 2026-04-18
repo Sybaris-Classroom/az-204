@@ -370,7 +370,7 @@ Message has reached MaxDequeueCount of 5. Moving message to queue 'quiz-queue-po
 Rajouter le package nuget suivant : 
 
 ```bash
-dotnet Microsoft.Data.SqlClient
+dotnet add package Microsoft.Data.SqlClient
 ```
 
 ## Étape 16 — Test
@@ -569,7 +569,7 @@ AuthorizationLevel.Function
 
 👉 Lancer un navigateur et appeler l’URL suivante : 
 
-http://<url function app>/api/SubmitQuiz?code=<app key>
+https://<url function app>/api/SubmitQuiz?code=<app key>
 
 ---
 
