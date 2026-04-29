@@ -29,7 +29,10 @@ Je vous recommande de suivre les éléments dans cet ordre :
 12. [Demo3 – Azure App Service Deployment Slots & Swap](Demo3/Demo3.md)
 13. [Quiz8](Quiz) - Deployment Slots
 14. [TP3 – Azure Functions](TP3/Tp3.md)
-15. [Quiz9](Quiz) -Azure Functions
+15. [Quiz9](Quiz) - Azure Functions
+16. [Clés asymétriques](Quiz) - Clés asymétriques
+17. [TP4 – Managed Identity et Key Vault](TP4/Tp4.md)
+18. [Quiz10](Quiz) - Managed Identity et Key Vault
 
 ---
 
