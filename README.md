@@ -33,6 +33,8 @@ Je vous recommande de suivre les éléments dans cet ordre :
 16. [Clés asymétriques](Quiz) - Clés asymétriques
 17. [TP4 – Managed Identity et Key Vault](TP4/Tp4.md)
 18. [Quiz10](Quiz) - Managed Identity et Key Vault
+19. [TP5 – Azure Blob Storage](TP5/Tp5.md)
+20. [Quiz11](Quiz) - Azure Blob Storage
 
 ---
 
