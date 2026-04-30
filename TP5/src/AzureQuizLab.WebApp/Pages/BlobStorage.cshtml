@@ -1,0 +1,25 @@
+﻿@page
+@model AzureQuizLab.Pages.BlobStorageModel
+
+<h2>Blob Storage Demo</h2>
+
+<form method="post" asp-page-handler="Upload">
+    <button type="submit">Upload</button>
+</form>
+
+<form method="get">
+    <button type="submit">Charger les fichiers</button>
+</form>
+
+<form method="post" asp-page-handler="Download">
+    <select asp-for="SelectedFile">
+        @foreach (var file in Model.Files)
+        {
+            <option value="@file">@file</option>
+        }
+    </select>
+
+    <button type="submit">Download</button>
+</form>
+
+<pre>@Model.Content</pre>
