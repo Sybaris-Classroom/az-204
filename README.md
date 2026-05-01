@@ -35,6 +35,8 @@ Je vous recommande de suivre les éléments dans cet ordre :
 18. [Quiz10](Quiz) - Managed Identity et Key Vault
 19. [TP5 – Azure Blob Storage](TP5/Tp5.md)
 20. [Quiz11](Quiz) - Azure Blob Storage
+21. [TP6 – Application Insights](TP6/Tp6.md)
+22. [Quiz12](Quiz) - Application Insights
 
 ---
 
