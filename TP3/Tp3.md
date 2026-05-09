@@ -1,4 +1,4 @@
-# 🧪 TP 3 --- Azure Functions (AzureQuizLab)
+# 🧪 TP3 — Azure Functions (AzureQuizLab)
 
 ## 🎯 Objectifs
 

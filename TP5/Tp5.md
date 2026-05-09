@@ -1,4 +1,4 @@
-# TP5 — Azure Blob Storage (Upload / Download)
+# 🧪 TP5 — Azure Blob Storage (Upload / Download)
 
 ## 🎯 Objectifs pédagogiques
 

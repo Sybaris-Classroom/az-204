@@ -1,5 +1,4 @@
-
-# 🧪 TP1 --- Déployer une Web App .NET sur Azure avec CI/CD GitHub
+# 🧪 TP1 — Déployer une Web App .NET sur Azure avec CI/CD GitHub
 
 ## 🎯 Objectifs
 

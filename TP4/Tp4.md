@@ -1,4 +1,4 @@
-# 🧪 TP 4 — Sécuriser AzureQuizLab avec Managed Identity et Key Vault
+# 🧪 TP4 — Sécuriser AzureQuizLab avec Managed Identity et Key Vault
 
 ## 🎯 Objectifs
 

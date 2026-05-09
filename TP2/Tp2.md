@@ -1,5 +1,4 @@
-
-# 🧪 TP2 --- Azure SQL, Configuration et Logs
+# 🧪 TP2 — Azure SQL, Configuration et Logs
 
 ## 🎯 Objectifs
 

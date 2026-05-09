@@ -1,4 +1,4 @@
-# 🧪 TP – Monitoring Azure
+# 🧪 TP6 — Monitoring Azure
 
 ## 🎯 Objectifs
 
