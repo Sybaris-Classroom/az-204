@@ -37,6 +37,8 @@ Je vous recommande de suivre les éléments dans cet ordre :
 20. [Quiz11](Quiz) - Azure Blob Storage
 21. [TP6 – Application Insights](TP6/Tp6.md)
 22. [Quiz12](Quiz) - Application Insights
+23. [TP7 – Azure Cosmos DB for NoSQL](TP7/TP7.md)
+24. [Quiz13](Quiz) - Azure Cosmos DB for NoSQL
 
 ---
 
