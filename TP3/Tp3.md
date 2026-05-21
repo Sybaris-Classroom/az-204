@@ -568,9 +568,9 @@ AuthorizationLevel.Function
 ### 🌐 Appeler la Function
 
 👉 Lancer un navigateur et appeler l’URL suivante : 
-
+```bash
 https://<url function app>/api/SubmitQuiz?code=<app key>
-
+```
 ---
 
 ### ✅ Vérifications attendues
