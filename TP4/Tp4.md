@@ -464,7 +464,7 @@ Authentication=Active Directory Default;
 - il n’y a plus de Password
 - Authentication=Active Directory Default permet d’utiliser automatiquement Azure AD, et donc la Managed Identity, pour s’authentifier à Azure SQL
 
-Déployer la Web App et vérifier que la connexion à Azure SQL fonctionne correctement.
+Déployer la Web App.
 
 ---
 
