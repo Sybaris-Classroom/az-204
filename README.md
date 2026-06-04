@@ -15,30 +15,34 @@ L'objectif est de vous aider à **comprendre concrètement les services Azure ut
 
 Je vous recommande de suivre les éléments dans cet ordre :
 
-1. [TP1 – Déployer une Web App .NET sur Azure avec CI/CD GitHub](TP1/Tp1.md)
-2. [Demo1 – Autoscaling d’un App Service Plan / Rules & Elastic](Demo1/Demo1.md)
-3. [Quiz1](Quiz) - On Premises vs IaaS vs PaaS vs SaaS
-4. [Quiz2](Quiz) - App Services
-5. [Quiz3](Quiz) - App Service Plans
-6. [TP2 – Azure SQL, Configuration et Logs](TP2/Tp2.md)
-7. [Quiz4](Quiz) - App Service Environment variables
-8. [Quiz5](Quiz) - Azure SQL
-9. [Quiz6](Quiz) - Kudu & Debug
-10. [Demo2 – Custom domain and Certificates](Demo2/Demo2.md)
-11. [Quiz7](Quiz) - Custom domain and Certificates
-12. [Demo3 – Azure App Service Deployment Slots & Swap](Demo3/Demo3.md)
-13. [Quiz8](Quiz) - Deployment Slots
-14. [TP3 – Azure Functions](TP3/Tp3.md)
-15. [Quiz9](Quiz) - Azure Functions
-16. [Clés asymétriques](Quiz) - Clés asymétriques
-17. [TP4 – Managed Identity et Key Vault](TP4/Tp4.md)
-18. [Quiz10](Quiz) - Managed Identity et Key Vault
-19. [TP5 – Azure Blob Storage](TP5/Tp5.md)
-20. [Quiz11](Quiz) - Azure Blob Storage
-21. [TP6 – Application Insights](TP6/Tp6.md)
-22. [Quiz12](Quiz) - Application Insights
-23. [TP7 – Azure Cosmos DB for NoSQL](TP7/TP7.md)
-24. [Quiz13](Quiz) - Azure Cosmos DB for NoSQL
+1. [🧪 TP1 – Déployer une Web App .NET sur Azure avec CI/CD GitHub](TP1/Tp1.md)
+2. [🎬 Demo1 – Autoscaling d’un App Service Plan / Rules & Elastic](Demo1/Demo1.md)
+3. [❓ Quiz1](Quiz) - On Premises vs IaaS vs PaaS vs SaaS
+4. [❓ Quiz2](Quiz) - App Services
+5. [❓ Quiz3](Quiz) - App Service Plans
+6. [🧪 TP2 – Azure SQL, Configuration et Logs](TP2/Tp2.md)
+7. [❓ Quiz4](Quiz) - App Service Environment variables
+8. [❓ Quiz5](Quiz) - Azure SQL
+9. [❓ Quiz6](Quiz) - Kudu & Debug
+10. [🎬 Demo2 – Custom domain and Certificates](Demo2/Demo2.md)
+11. [❓ Quiz7](Quiz) - Custom domain and Certificates
+12. [🎬 Demo3 – Azure App Service Deployment Slots & Swap](Demo3/Demo3.md)
+13. [❓ Quiz8](Quiz) - Deployment Slots
+14. [🧪 TP3 – Azure Functions](TP3/Tp3.md)
+15. [❓ Quiz9](Quiz) - Azure Functions
+16. [❓ Clés asymétriques](Quiz) - Clés asymétriques
+17. [🧪 TP4 – Managed Identity et Key Vault](TP4/Tp4.md)
+18. [❓ Quiz10](Quiz) - Managed Identity et Key Vault
+19. [🧪 TP5 – Azure Blob Storage](TP5/Tp5.md)
+20. [❓ Quiz11](Quiz) - Azure Blob Storage
+21. [🧪 TP6 – Application Insights](TP6/Tp6.md)
+22. [❓ Quiz12](Quiz) - Application Insights
+23. [🧪 TP7 – Azure Cosmos DB for NoSQL](TP7/TP7.md)
+24. [❓ Quiz13](Quiz) - Azure Cosmos DB for NoSQL
+25. [🧪 TP8 — Containeriser AzureQuizLab.WebApp avec Docker, ACR et ACI](TP8/TP8.md)
+26. [❓ Quiz14](Quiz) - Containerisation, Docker, ACR et ACI
+27. [🧪 TP9 — Azure Container Apps : scaling et traffic splitting](TP9/TP9.md)
+28. [❓ Quiz15](Quiz) - Azure Container Apps : scaling et traffic splitting
 
 ---
 
