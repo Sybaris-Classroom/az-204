@@ -75,6 +75,7 @@ Storage Blob Data Contributor
 
 ![Gestion des droits role](images/Image4.jpg)
 ![Recherche du role](images/Image5.jpg)
+![Assign member](images/Image6.jpg)
 
 4. Assigner aussi ce rôle à votre utilisateur Azure (compte connecté en local via `az login`)
 
