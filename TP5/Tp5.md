@@ -79,6 +79,8 @@ Storage Blob Data Contributor
 
 4. Assigner aussi ce rôle à votre utilisateur Azure (compte connecté en local via `az login`)
 
+Attention, je ne remet pas les copies d'écran pour cette étape, mais il faut aussi assigner le rôle `Storage Blob Data Contributor` à votre compte utilisateur Azure (celui que vous utilisez pour vous connecter en local via `az login`). Il s'agit d'étapes similaires à celles montrées ci-dessus, mais au lieu de sélectionner la Managed Identity de la Web App, vous sélectionnez votre compte utilisateur Azure.
+
 > 💡 Pourquoi ? En local, l'application utilise `AzureCliCredential` avec votre identité Azure CLI. Sans ce rôle RBAC sur votre compte, vous obtiendrez une erreur `403 AuthorizationPermissionMismatch`.
 
 ---
