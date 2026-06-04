@@ -170,6 +170,8 @@ Dans `appsettings.json`, ajouter en remplaçant l’URL par celle de votre Stora
 
 > 💡 L'URL se trouve dans le portail Azure, dans le Storage Account → **Endpoints → Blob service**.
 
+![Storage Account URL](images/Image7.jpg)
+
 ---
 
 ## ⚙️ Étape 6 — Enregistrer le service
