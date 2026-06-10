@@ -43,6 +43,10 @@ Je vous recommande de suivre les éléments dans cet ordre :
 26. [❓ Quiz14](Quiz) - Containerisation, Docker, ACR et ACI
 27. [🧪 TP9 — Azure Container Apps : scaling et traffic splitting](TP9/TP9.md)
 28. [❓ Quiz15](Quiz) - Azure Container Apps : scaling et traffic splitting
+29. [❓ Quiz16](Quiz) - Azure Container : questions bonus
+30. [❓ Quiz17](Quiz) - Azure Messaging : Azure Event Hub et Azure Service Bus
+30. [❓ Quiz18](Quiz) - Azure Messaging : Azure Event Grid
+30. [❓ Quiz19](Quiz) - Azure Messaging : Azure Event Hub
 
 ---
 
