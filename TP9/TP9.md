@@ -339,7 +339,7 @@ Basculer en mode `Multiple` :
 az containerapp revision set-mode \
   --name webapp \
   --resource-group RG-Student-XX \
-  --mode multipleclear
+  --mode multiplec
 ```
 
 Vérifier que le mode est bien `Multiple` :
